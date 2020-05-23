@@ -8,13 +8,14 @@
 setup:
 	# Create python virtualenv & source it
 	sudo apt install python3.7
+	sudo apt install python3-pip
+	sudo apt update
+	sudo apt install python3-venv
+	sudo apt update
 	sudo ln -s /usr/lib/python3/dist-packages/apt_pkg.cpython-{36m,37m}-x86_64-linux-gnu.so
 	sudo ln -s /usr/lib/python3/dist-packages/gi/_gi.cpython-{36m,37m}-x86_64-linux-gnu.so
 	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
 	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
-	sudo apt install python3-pip
-	sudo apt install python3-venv
-	sudo apt update
 	python3 -m venv ~/.devops
 	source ~/.devops/bin/activate
 install:
@@ -24,18 +25,20 @@ install:
 		pip install pylint
 	
 	sudo apt-get install \
-       	apt-transport-https \
-	ca-certificates \
-	curl \
-	gnupg-agent \
-	software-properties-common
+		apt-transport-https \
+		ca-certificates \
+		curl \
+		gnupg-agent \
+		software-properties-common
 	
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	apt-key fingerprint 0EBFCD88
+	
 	sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-	 $(lsb_release -cs) \
-   stable"
+   	"deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+	bionic \
+   	stable"
+	
 	sudo apt-get install docker-ce=5:18.09.9~3-0~ubuntu-bionic  docker-ce-cli=5:18.09.9~3-0~ubuntu-bionic containerd.io
 	sudo docker pull hadolint/hadolint
 test:
