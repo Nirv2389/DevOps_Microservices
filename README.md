@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://circleci.com/gh/Nirv2389/DevOps_Microservices.svg?style=shield&circle-token=<40653791cbdbe3a5bc7c6b7d1b948b1b4a58d629>)](https://app.circleci.com/pipelines/github/Nirv2389/DevOps_Microservices)
 
 ## Project Overview
 
